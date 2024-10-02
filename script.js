@@ -65,16 +65,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const closeBtn = document.querySelector('.close');
 
     projectCards.forEach(card => {
-        const video = card.querySelector('video');
+        const videoLink = card.querySelector('.video-link');
         const detailsBtn = card.querySelector('.details-btn');
 
-        card.addEventListener('mouseenter', () => {
-            video.play();
-        });
-
-        card.addEventListener('mouseleave', () => {
-            video.pause();
-            video.currentTime = 0;
+        videoLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            const videoSrc = videoLink.getAttribute('href');
+            window.open(videoSrc, '_blank', 'width=640,height=480');
         });
 
         detailsBtn.addEventListener('click', () => {
